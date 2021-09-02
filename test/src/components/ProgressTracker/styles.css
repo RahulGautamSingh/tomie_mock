@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  /* border:1px solid black */
+}
+.progressbar {
+  display: flex;
+  /* flex-direction: column; */
+  width: 100%;
+  /* border: 10px solid red; */
+  padding: 20px;
+}
+.step-box {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: fit-content;
+  /* border:1px solid black; */
+}
+.step-top {
+  display: flex;
+  width: 100%;
+  /* border:1px solid black; */
+  align-items: center;
+  /* justify-content:center */
+}
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0a3977;
+  border: 1.5px solid #0a3977;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 24px;
+}
+.active {
+  background-color: #c5dcfa;
+}
+hr {
+  background-color: #0a3977;
+  flex: 0.5;
+  height: 2px;
+}
+.step-info {
+    margin-top:10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 16px;
+  color:#000;
+  /* border:1px solid red; */
+}
+.step-num {
+  font-weight: 700;
+}
+.active-info{
+    color:#0A3977;
+    /* background-color:white */
+}
+.step-description {
+  width: 85%;
+  font-weight: 600;
+  text-align: center;
+  /* border:1px solid red */
+}
+
+@media only screen and (max-width: 600px) {
+    .circle{
+        width:30px;
+        height:30px;
+        font-size:15px
+    }
+    .step-info{
+        display:none
+    }
+  }

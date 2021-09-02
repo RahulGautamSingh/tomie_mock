@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.form-step-description {
+  text-align: center;
+  padding: 3px 0;
+  background-color: #c5dcfa;
+  font-size: 21px;
+}
+.step-instruction {
+  font-weight: 600;
+  padding: 10px;
+  font-size: 14px;
+}
+.form-section {
+  width: 100%;
+  display: flex;
+  height: fit-content;
+}
+.avatar-upload {
+  width: 30%;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+}
+.user-info {
+  display: flex;
+  flex-flow: row wrap;
+  width: 70%;
+  /* margin-top:20px */
+  /* border:1px solid black; */
+
+  /* column-gap:10px; */
+}
+.info-box {
+  width: 50%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  /* border:1px solid black; */
+  padding-bottom: 15px;
+}
+
+label,
+input {
+  display: block;
+  /* text-transform: uppercase; */
+  color: #c7c7c7;
+}
+input {
+  margin-top: 7px;
+  width: 90%;
+  border: 1.5px solid #c7c7c7;
+  height: 30px;
+  border-radius: 5px;
+  color: #000;
+  padding: 5px;
+}
+.other-forms {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  min-height: 70px;
+  justify-content: center;
+  color: #c5dcfa;
+}
+.button-div{
+    display:flex;
+    width:100%;
+    align-items:center;
+    justify-content:flex-end;
+  }
+  button{
+    color:#0A3977;
+    background-color:#c5dcfa;
+    border-radius:4px;
+    padding:8px;
+    letter-spacing:1.5px;
+    border:none;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+  }
+  button:hover{
+    color:#c5dcfa;
+    background-color:#0A3977;
+  }
+
+@media only screen and (max-width: 600px) {
+  .form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .form-step-description {
+    font-size: 16px;
+  }
+  .step-instruction {
+    font-size: 10px;
+  }
+  .avatar-upload {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .button-div{
+    justify-content:center
+  }
+  /* #avatar-label {
+        display:block
+     } */
+}
+#avatar-label {
+  cursor: pointer;
+  color: black;
+}
+
+#upload-photo {
+  opacity: 0;
+  position: absolute;
+  top: -10px;
+  z-index: -1;
+}
