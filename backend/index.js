@@ -6,6 +6,7 @@ const { Op } = require("sequelize");
 const User = require("./models/user");
 const path = require("path");
 const multer = require("multer");
+const { resolveSoa } = require("dns");
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "static/uploads/");
@@ -47,7 +48,7 @@ app.post("/users", multipart.single("image"), (req, res) => {
     .then(() => {
       res.send({ msg: "User is created." });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => res.status(400).send({ msg: err.messsage }));
 });
 //reading users based on id
 app.get("/users", async (req, res) => {
@@ -55,12 +56,12 @@ app.get("/users", async (req, res) => {
     where: {
       id: [1, 2, 3],
     },
-  }).catch((err) => console.log(err));
+  }).catch((err) => res.status(400).send({ msg: err.messsage }));
 
   res.send({ users: users });
 });
 //update user password using email
-app.patch("/users", async(req, res) => {
+app.post("/users", async (req, res) => {
   let users = await User.update(
     { password: req.body.password },
     {
@@ -68,28 +69,35 @@ app.patch("/users", async(req, res) => {
         email: req.body.email,
       },
     }
-  ).then(() => {
-    res.send({ msg: "User updated." });
-  });
+  )
+    .then(() => {
+      res.send({ msg: "User updated." });
+    })
+    .catch((err) => res.status(400).send({ msg: err.messsage }));
 });
 //delete a user using name & email
 app.delete("/users", async (req, res) => {
-  User.destroy({
-    where: {
-      [Op.and]: [
-        {
-          name: {
-            [Op.like]: req.body.name,
+  try {
+    User.destroy({
+      where: {
+        [Op.and]: [
+          {
+            name: {
+              [Op.like]: req.body.name,
+            },
           },
-        },
-        {
-          email: {
-            [Op.like]: req.body.email,
+          {
+            email: {
+              [Op.like]: req.body.email,
+            },
           },
-        },
-      ],
-    },
-  });
+        ],
+      },
+    });
+    res.send({ msg: "User deleted" });
+  } catch (err) {
+    res.status(400).send({ msg: err.messsage });
+  }
 });
 const port = 3200;
 app.listen(port, () => {

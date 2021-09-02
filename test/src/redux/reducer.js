@@ -13,8 +13,7 @@ export let initialState = {
 };
 
 export function reducer(state = initialState, action) {
-  console.log("hello there");
-  switch (action.type) {
+    switch (action.type) {
     case STORE_USER_DATA:
       return { ...state, user: action.payload };
     case INCREMENT_CURR_STEP:

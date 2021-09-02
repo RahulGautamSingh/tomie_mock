@@ -77,19 +77,35 @@ export default function Form() {
             <div className="info-box">
               <label htmlFor="username">
                 NAME
-                <input type="text" name="username" ref={nameRef} placeholder="username"/>
+                <input
+                  type="text"
+                  name="username"
+                  ref={nameRef}
+                  placeholder="username"
+                />
               </label>
             </div>
             <div className="info-box">
               <label htmlFor="email">
                 EMAIL
-                <input type="email" name="email" ref={emailRef} placeholder="email"/>
+                <input
+                  type="email"
+                  name="email"
+                  ref={emailRef}
+                  placeholder="email"
+                />
               </label>
             </div>
             <div className="info-box" style={{ alignSelf: "flex-end" }}>
-              <label htmlFor="password" >
+              <label htmlFor="password">
                 PASSWORD
-                <input type="password" name="password" ref={passRef} placeholder="password" data-testid="password" />
+                <input
+                  type="password"
+                  name="password"
+                  ref={passRef}
+                  placeholder="password"
+                  data-testid="password"
+                />
               </label>
             </div>
             <div className="info-box" style={{ alignSelf: "flex-end" }}>
@@ -116,11 +132,8 @@ export default function Form() {
           onClick={(e) => {
             e.preventDefault();
             if (state.currentStep < 4) {
-              console.log("yes")
               if (state.currentStep === 0) {
-                console.log("yes2")
                 if (!checkError()) {
-                  console.log("yes3")
                   //store data in redux-store
                   dispatch(
                     storingUserData({
@@ -131,13 +144,13 @@ export default function Form() {
                     })
                   );
                   //move to next step
-                  console.log("yes4")
                   dispatch(incrementCurrStep(state.currentStep + 1));
                 }
               } else dispatch(incrementCurrStep(state.currentStep + 1));
             } else {
               //submit step send data to server
               dispatch(sendingUserDataToServer(state.user));
+              alert("User Created");
             }
           }}
         >
