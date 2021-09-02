@@ -34,5 +34,4 @@ test("All steps are rendered properly", () => {
   let arrayOfSteps = getAllByTestId("steps", { selector: "div" });
   expect(arrayOfSteps.length).toBe(5);
   console.log(arrayOfSteps)
-//   expect(arrayOfSteps[0].style.backgroundColor).toBe('#c5dcfa')
 });
