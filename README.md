@@ -6,28 +6,28 @@ Make sure you have [MariaDB](https://downloads.mariadb.org/) installed in you de
 # FRONTEND 
 
 Open the project in terminal
-
+```
 cd test
 
 npm install
+```
+-> `npm start` to run the frontend
 
--> npm start to run the frontend
-
--> npm run test to test the front-end
+-> `npm run test` to test the front-end
 
 # BACKEND
 
 Open the project in terminal
-
+```
 cd backend
 
 npm install
+```
+-> `npm start` to run the backend
 
--> npm start to run the backend
+To test the full application run the backend and frontend at the same time.
 
-To test the full application run the backendd and frontend at the same time.
-
-# Images
+## Screenshots
 
 HomePage
 ![](images/screenshot_1.png)
