@@ -25,7 +25,7 @@ npm install
 
 -> npm start to run the backend
 
-To test the full application run the backendd and frontend at the same time.
+To test the full application run the backend and frontend at the same time.
 
 # Images
 
